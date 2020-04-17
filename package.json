@@ -1,0 +1,34 @@
+{
+    "name": "reactjs-nextjs-nodejs-express",
+    "version": "1.0.0",
+    "description": "Simple implementation of reactjs server side rendering nextjs with nodejs",
+    "main": "src/index.js",
+    "scripts": {
+        "dev": "node ./src/index.js",
+        "build": "next build",
+        "start": "next start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jatinseth2007/reactjs-nextjs-nodejs-express.git"
+    },
+    "keywords": [
+        "reactjs",
+        "nextjs",
+        "nodejs",
+        "express"
+    ],
+    "author": "Jatin Seth",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jatinseth2007/reactjs-nextjs-nodejs-express/issues"
+    },
+    "homepage": "https://github.com/jatinseth2007/reactjs-nextjs-nodejs-express#readme",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "express": "^4.17.1",
+        "next": "^9.3.5",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    }
+}
