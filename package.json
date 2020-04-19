@@ -4,9 +4,7 @@
     "description": "Simple implementation of reactjs server side rendering nextjs with nodejs",
     "main": "src/index.js",
     "scripts": {
-        "dev": "node ./src/index.js",
-        "build": "next build",
-        "start": "next start"
+        "dev": "node ./src/index.js"
     },
     "repository": {
         "type": "git",
@@ -26,6 +24,7 @@
     "homepage": "https://github.com/jatinseth2007/reactjs-nextjs-nodejs-express#readme",
     "dependencies": {
         "axios": "^0.19.2",
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "next": "^9.3.5",
         "react": "^16.13.1",

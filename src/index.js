@@ -1,3 +1,4 @@
+require('dotenv').config();
 const next = require('next');
 const express = require('express');
 const middlewears = require("./middlewears/middlewears");
@@ -11,28 +12,32 @@ const cities = require('./factory/city.list.json');
     try {
         await app.prepare();
         const server = express();
+        // adding middlewares to the process...
+        process.on('uncaughtException', middlewears.unhandledExceptions);
+        process.on('unhandledRejection', middlewears.unhandledRejections);
+
         server.get('/search/cities', async (req, res, next) => {
-            try{
+            try {
                 //check if we are getting input or not...
-                if(!req.query.q || req.query.q.length <= 0){
+                if (!req.query.q || req.query.q.length <= 0) {
                     res.status(422);
-                    throw new Error("Please provide valid input."); 
+                    throw new Error("Please provide valid input.");
                 }
                 let output = [];
                 // pick 5 top matching cities and the reply back
-                for(let city of cities){
-                    if(city.name.toLowerCase().indexOf(req.query.q.toLowerCase()) >= 0){
+                for (let city of cities) {
+                    if (city.name.toLowerCase().indexOf(req.query.q.toLowerCase()) >= 0) {
                         output.push({
                             id: city.id,
                             name: city.name
                         });
                     }//EOL
-                    if(output.length >= 5){
+                    if (output.length >= 5) {
                         break;
                     }//EOI
                 }//EOL
                 res.json(output);
-            }catch(error){
+            } catch (error) {
                 next(error);
             }
         });
